@@ -1,19 +1,6 @@
 from ostoskori import Ostoskori
 
-class PankkiIo:
-    def __init__(self, jotain):
-        self.jotain = jotain
-    
-    def jotainmuuta(self, jotain):
-        return jotain
 
-
-class ConnectToBank:
-    def __init__(self, pankki):
-        self.pankki = pankki
-    
-    def connect(self, pankki): 
-        return pankki.get_instance()
 
 class Kauppa:
     def __init__(self, varasto,  pankki, viitegeneraattori):
