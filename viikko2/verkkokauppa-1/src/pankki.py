@@ -1,3 +1,5 @@
+from kirjanpito import kirjanpito as default_kirjanpito
+
 class Pankki:
     # __instanssi = None
 
@@ -8,7 +10,7 @@ class Pankki:
 
     #     return Pankki.__instanssi
 
-    def __init__(self, kirjanpito):
+    def __init__(self, kirjanpito=default_kirjanpito):
         self._kirjanpito = kirjanpito
 
     def tilisiirto(self, nimi, viitenumero, tililta, tilille, summa):
@@ -18,3 +20,5 @@ class Pankki:
 
         # täällä olisi koodi joka ottaa yhteyden pankin verkkorajapintaan
         return True
+
+pankki = Pankki()
