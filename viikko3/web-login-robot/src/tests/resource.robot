@@ -25,7 +25,7 @@ Main Page Should Be Open
     Title Should Be  Ohtu Application main page
 
 Welcome Page Should Be Open
-    Title Should Be  Ohtu Application main page
+    Title Should Be  Welcome to Ohtu Application!
 
 Register Page Should Be Open
     Title Should Be  Register
