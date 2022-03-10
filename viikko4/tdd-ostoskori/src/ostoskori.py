@@ -11,7 +11,6 @@ class Ostoskori:
             lukumaara += ostos.lukumaara()
         return lukumaara
 
-
         # kertoo korissa olevien tavaroiden lukumäärän
         # eli jos koriin lisätty 2 kpl tuotetta "maito", tulee metodin palauttaa 2 
         # samoin jos korissa on 1 kpl tuotetta "maito" ja 1 kpl tuotetta "juusto", tulee metodin palauttaa 2 
@@ -31,12 +30,12 @@ class Ostoskori:
                 return 
         self.ostoskori.append(Ostos(lisattava))
 
-
-
     def poista_tuote(self, poistettava: Tuote):
         for ostos in self.ostoskori:
             if ostos.tuotteen_nimi() == poistettava.nimi():
                 ostos.muuta_lukumaaraa(-1)
+                if ostos.lukumaara() == 0:
+                    self.ostoskori.remove(ostos)
 
 
     def tyhjenna(self):
