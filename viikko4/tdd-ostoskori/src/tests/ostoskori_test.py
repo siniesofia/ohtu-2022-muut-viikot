@@ -57,6 +57,13 @@ class TestOstoskori(unittest.TestCase):
         kori.lisaa_tuote(maito)
         self.assertEqual(kori.ostokset()[0].tuotteen_nimi(), "maito")
         self.assertEqual(kori.ostokset()[0].lukumaara(), 1)
+    def test_kahden_eri_tuotteen_lisaamisen_jalkeen_ostoskorissa_kaksi_ostosta(self):
+        kori = Ostoskori()
+        maito = Tuote("maito", 5)
+        piima = Tuote("piima", 3)
+        kori.lisaa_tuote(maito)
+        kori.lisaa_tuote(piima)
+        self.assertEqual(kori.tavaroita_korissa(), 2)
     def test_kahden_saman_tuotteen_lisaamisen_jalkeen_korissa_yksi_ostos(self):
         kori = Ostoskori()
         maito = Tuote("maito", 5)
@@ -83,6 +90,14 @@ class TestOstoskori(unittest.TestCase):
         maito = Tuote("maito", 5)
         kori.lisaa_tuote(maito)
         kori.poista_tuote(maito)
+        self.assertEqual(len(kori.ostokset()), 0)
+        self.assertEqual(kori.tavaroita_korissa(), 0)
+    def test_metodi_tyhjenna_tyhjentaa_ostoskorin(self):
+        kori = Ostoskori()
+        maito = Tuote("maito", 5)
+        kori.lisaa_tuote(maito)
+        kori.lisaa_tuote(maito)
+        kori.tyhjenna()
         self.assertEqual(len(kori.ostokset()), 0)
         self.assertEqual(kori.tavaroita_korissa(), 0)
 
